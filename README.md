@@ -1,7 +1,4 @@
-import math
-import matplotlib.pyplot as plt
-import numpy as np
-
+Функции методов 
 def rectangle(f, a, b, n):
     if n <= 0:
         return 'Please, change n, n must be >= 1 '
@@ -59,6 +56,8 @@ def three_eight(f, a, b, n):
     result += 3 * sum3 + 2 * sum2
     return (3 * h / 8) * result
 
+
+функция 
 def runge_error(f, a, b, n, method, p):
     I_h = method(f, a, b, n)
     if isinstance(I_h, str):  
@@ -75,6 +74,7 @@ def runge_error(f, a, b, n, method, p):
     I_richardson = (2**p * I_h - I_2h) / (2**p - 1)
     return error, I_richardson
 
+Построение графиков в зависимости от выбора метода
 
 def plot_function(f, a, b, n, method_name):
     x = np.linspace(a, b, 1000)
@@ -119,7 +119,10 @@ def plot_function(f, a, b, n, method_name):
     plt.grid(True, alpha=0.3)
     plt.show()
 
-def main():
+    
+    
+    Взаимодействие с пользователем
+    def main():
     print("Введите функцию от x используйте math")
     expr = input("f(x) = ")
     try:
@@ -157,8 +160,6 @@ def main():
         return
     
     method_name, method_func, order = methods[method_choice]
-    
-
     result = method_func(f, a, b, n)
     if isinstance(result, str):
         print(result)
